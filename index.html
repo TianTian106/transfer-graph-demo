@@ -1,0 +1,457 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>tiantian_test</title>
+    <script src="jquery-1.10.2.min.js"></script>
+    <script src="echarts.min.js"></script>
+    <style type="text/css">
+        html, body, #main { height: 100%; width: 100%; margin: 0; padding: 0 }
+    </style>
+</head>
+<body>
+    <div id="main" style=""></div>
+    <script type="text/javascript">
+        var myChart = echarts.init(document.getElementById('main'));
+        option = {
+            title: {
+                text: 'tiantian_demo'
+            },
+            backgroundColor:'#E6E6F2',
+            tooltip: {
+                formatter: function(params) {
+                    result = '';
+                    if(params.name !== undefined) 
+                        result = 'mid：' + params.name + '</br>';
+                    if(params.value.reg_date !== undefined) 
+                        result = result + 'reg_date：' + params.value.reg_date + '</br>';
+                    if(params.value.vip_level !== undefined) 
+                        result = result + 'vip_level：' + params.value.vip_level + '</br>';
+                    if(params.value.amount !== undefined) 
+                        result = result + 'amount：' + params.value.amount + '</br>';
+                    return result;
+                }
+            },
+            animationDurationUpdate: 1500,
+            animationEasingUpdate: 'quinticInOut',
+            label: {
+                normal: {
+                    show: true,
+                    textStyle: {
+                        fontSize: 12
+                    },
+                }
+            },
+            legend: {
+                x: "center",
+                data: ["根用户", "一级", '二级', '三级', '四级', '五级']
+            },
+            series: [
+
+                {
+                    type: 'graph',
+                    layout: 'force',
+                    symbolSize: 45,
+                    focusNodeAdjacency: true,
+                    roam: true,
+                    categories: [{
+                        name: '根用户',
+                        itemStyle: {
+                            normal: {
+                                color: "#000079",
+                            }
+                        }
+                    }, {
+                        name: '一级',
+                        itemStyle: {
+                            normal: {
+                                color: "#0000C6",
+                            }
+                        }
+                    }, {
+                        name: '二级',
+                        itemStyle: {
+                            normal: {
+                                color: "#0000E3",
+                            }
+                        }
+                    }, {
+                        name: '三级',
+                        itemStyle: {
+                            normal: {
+                                color: "#4A4AFF",
+                            }
+                        }
+                    }, {
+                        name: '四级',
+                        itemStyle: {
+                            normal: {
+                                color: "#6A6AFF",
+                            }
+                        }
+                    }, {
+                        name: '五级',
+                        itemStyle: {
+                            normal: {
+                                color: "#9393FF",
+                            }
+                        }
+                    }],
+                    label: {
+                        normal: {
+                            show: true,
+                            textStyle: {
+                                fontSize: 12
+                            },
+                        }
+                    },
+                    force: {
+                        repulsion: 1000
+                    },
+                    edgeSymbolSize: [5, 20],
+                    edgeSymbol: ['circle', 'arrow'],
+                    edgeLabel: {
+                        normal: {
+                            show: true,
+                            textStyle: {
+                                fontSize: 10,
+                                color:'#000079'
+                            },
+                            formatter: function(params) {
+                                return params.value.amount;
+                            }
+                        }
+                    },
+                    data: [{
+                        name: 'pt_id_root',
+                        category:0,
+                        symbolSize:70,
+                        value:{
+                            amount:70,
+                            reg_date:'2017-01-01',
+                            vip_level:5
+                        },
+                        draggable: true
+                    }, {
+                        name: 'pt_1',
+                        category:1,
+                        symbolSize:20,
+                        value:{
+                            amount:20,
+                            reg_date:'2017-02-01',
+                            vip_level:5
+                        },
+                        draggable: true
+                    }, {
+                        name: 'pt_2',
+                        category:1,
+                        symbolSize:30,
+                        value:{
+                            amount:30,
+                            reg_date:'2017-03-01',
+                            vip_level:5
+                        },
+                        draggable: true
+                    }, {
+                        name: 'pt_3',
+                        category:1,
+                        symbolSize:50,
+                        value:{
+                            amount:50,
+                            reg_date:'2017-04-01',
+                            vip_level:5
+                        },
+                        draggable: true
+                    }, {
+                        name: 'pt_4',
+                        category:1,
+                        symbolSize:60,
+                        value:{
+                            amount:60,
+                            reg_date:'2017-05-01',
+                            vip_level:5
+                        },
+                        draggable: true
+                    }, {
+                        name: 'pt_5',
+                        category:1,
+                        symbolSize:40,
+                        value:{
+                            amount:40,
+                            reg_date:'2017-06-01',
+                            vip_level:5
+                        },
+                        draggable: true
+                    }, {
+                        name: 'pt_6',
+                        category:4,
+                        symbolSize:20,
+                        value:{
+                            amount:20,
+                            reg_date:'2017-07-01',
+                            vip_level:5
+                        },
+                        draggable: true
+                    }, {
+                        name: 'pt_7',
+                        category:3,
+                        symbolSize:25,
+                        value:{
+                            amount:25,
+                            reg_date:'2017-08-01',
+                            vip_level:5
+                        },
+                        draggable: true
+                    }, {
+                        name: 'pt_8',
+                        category:2,
+                        symbolSize:50,
+                        value:{
+                            amount:50,
+                            reg_date:'2017-01-02',
+                            vip_level:5
+                        },
+                        draggable: true
+                    }, {
+                        name: 'pt_9',
+                        category:3,
+                        symbolSize:60,
+                        value:{
+                            amount:60,
+                            reg_date:'2017-01-03',
+                            vip_level:5
+                        },
+                        draggable: true
+                    }, {
+                        name: 'pt_10',
+                        category:2,
+                        symbolSize:55,
+                        value:{
+                            amount:55,
+                            reg_date:'2017-01-04',
+                            vip_level:5
+                        },
+                        draggable: true
+                    }, {
+                        name: 'pt_11',
+                        category:2,
+                        symbolSize:66,
+                        value:{
+                            amount:66,
+                            reg_date:'2017-01-05',
+                            vip_level:5
+                        },
+                        draggable: true
+                    }, {
+                        name: 'pt_12',
+                        category:1,
+                        symbolSize:35,
+                        value:{
+                            amount:35,
+                            reg_date:'2017-01-06',
+                            vip_level:5
+                        },
+                        draggable: true
+                    }, {
+                        name: 'pt_13',
+                        category:5,
+                        symbolSize:35,
+                        value:{
+                            amount:35,
+                            reg_date:'2017-01-06',
+                            vip_level:5
+                        },
+                        draggable: true
+                    }],
+                    links: [{
+                        source: 'pt_id_root',
+                        target: 'pt_1',
+                        value:{
+                            amount: 37
+                        },
+                        lineStyle:{
+                            normal:{
+                                width:3
+                            }
+                        }
+                    }, {
+                        source: 'pt_id_root',
+                        target: 'pt_2',
+                        value:{
+                            amount: 10
+                        },
+                        lineStyle:{
+                            normal:{
+                                width:1
+                            }
+                        }
+                    }, {
+                        source: 'pt_id_root',
+                        target: 'pt_3',
+                        value:{
+                            amount: 20
+                        },
+                        lineStyle:{
+                            normal:{
+                                width:2
+                            }
+                        }
+                    }, {
+                        source: 'pt_id_root',
+                        target: 'pt_4',
+                        value:{
+                            amount: 6
+                        },
+                        lineStyle:{
+                            normal:{
+                                width:1
+                            }
+                        }
+                    }, {
+                        source: 'pt_1',
+                        target: 'pt_2',
+                        value:{
+                            amount: 8
+                        },
+                        lineStyle:{
+                            normal:{
+                                width:1
+                            }
+                        }
+                    }, {
+                        source: 'pt_id_root',
+                        target: 'pt_5',
+                        value:{
+                            amount: 30
+                        },
+                        lineStyle:{
+                            normal:{
+                                width:3
+                            }
+                        }
+                    }, {
+                        source: 'pt_4',
+                        target: 'pt_5',
+                        value:{
+                            amount: 88
+                        },
+                        lineStyle:{
+                            normal:{
+                                width:8
+                            }
+                        }
+                    }, {
+                        source: 'pt_2',
+                        target: 'pt_8',
+                        value:{
+                            amount: 99
+                        },
+                        lineStyle:{
+                            normal:{
+                                width:9
+                            }
+                        }
+                    }, {
+                        source: 'pt_id_root',
+                        target: 'pt_12',
+                        value:{
+                            amount: 100
+                        },
+                        lineStyle:{
+                            normal:{
+                                width:9
+                            }
+                        }
+                    }, {
+                        source: 'pt_9',
+                        target: 'pt_6',
+                        value:{
+                            amount: 5.5
+                        },
+                        lineStyle:{
+                            normal:{
+                                width:1
+                            }
+                        }
+                    }, {
+                        source: 'pt_6',
+                        target: 'pt_13',
+                        value:{
+                            amount: 66
+                        },
+                        lineStyle:{
+                            normal:{
+                                width:6
+                            }
+                        }
+                    }, {
+                        source: 'pt_5',
+                        target: 'pt_7',
+                        value:{
+                            amount: 33
+                        },
+                        lineStyle:{
+                            normal:{
+                                width:3
+                            }
+                        }
+                    }, {
+                        source: 'pt_10',
+                        target: 'pt_9',
+                        value:{
+                            amount: 108
+                        },
+                        lineStyle:{
+                            normal:{
+                                width:10
+                            }
+                        }
+                    }, {
+                        source: 'pt_3',
+                        target: 'pt_10',
+                        value:{
+                            amount: 102
+                        },
+                        lineStyle:{
+                            normal:{
+                                width:10
+                            }
+                        }
+                    }, {
+                        source: 'pt_2',
+                        target: 'pt_11',
+                        value:{
+                            amount: 28
+                        },
+                        lineStyle:{
+                            normal:{
+                                width:2
+                            }
+                        }
+                    }, {
+                        source: 'pt_1',
+                        target: 'pt_3',
+                        value:{
+                            amount: 28
+                        },
+                        lineStyle:{
+                            normal:{
+                                width:2
+                            }
+                        }
+                    }],
+                    lineStyle: {
+                        normal: {
+                            opacity: 0.9,
+                            width: 1,
+                            curveness: 0,
+                            color:'#B8B8DC',
+                        }
+                    }
+                }
+            ]
+        };
+        myChart.setOption(option);
+    </script>
+</body>
+</html>
